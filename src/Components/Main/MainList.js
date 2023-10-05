@@ -1,4 +1,4 @@
-import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
+import React from "react";
 
 const MainList = ({ colleges }) => {
   // Check if the colleges array is not empty (otherwise errors arise)
@@ -6,7 +6,7 @@ const MainList = ({ colleges }) => {
     // Select random college
     const randomCollege = colleges[Math.floor(Math.random() * colleges.length)];
 
-    return html`
+    return (
       <div>
         <hr />
         Guess the college by the following info:
@@ -22,16 +22,16 @@ const MainList = ({ colleges }) => {
           </li>
         </ul>
       </div>
-    `;
+    );
   } else {
     // Handle the case where the colleges array is empty
-    return html`
+    return (
       <div>
         <hr />
         This is the stateless child component, but there are no colleges to
         display.
       </div>
-    `;
+    );
   }
 };
 

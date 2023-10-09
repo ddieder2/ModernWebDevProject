@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+/* Sets the font for body to imported google font */
+body {
+  margin: 8px;
+  font-family: "Cabin", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Sets font family for h1 to imported google font */
+/* Uses cascading to make sure this is different from body font, even when h1 is in body element */
+h1 {
+  font-family: "Black Ops One";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.upper-margin {
+  margin-top: 16px;
+}
+
+#difficulty-selector {
+  margin-bottom: 16px;
+}
+
+/* Sets max width for select when screen size is greater than 600px */
+select {
+  max-width: 50%;
+}
+
+input {
+  max-width: 50%;
+}
+
+/* Uses media query to allow size of drop down menu to fill screen on mobile devices */
+@media all and (max-width: 600px) {
+  select {
+    max-width: 100%;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  input {
+    max-width: 100%;
   }
 }

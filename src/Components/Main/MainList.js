@@ -11,14 +11,14 @@ const MainList = ({ colleges }) => {
         <hr />
         Guess the college by the following info:
         <ul>
-          <li key="${randomCollege.team_name}">
-            Team Name: ${randomCollege.team_name}
+          <li key={randomCollege.team_name}>
+            Team Name: {randomCollege.team_name}
           </li>
-          <li key="${randomCollege.football_conference}">
-            Conference: ${randomCollege.football_conference}
+          <li key={randomCollege.football_conference}>
+            Conference: {randomCollege.football_conference}
           </li>
-          <li key="${randomCollege.type}">
-            Type: ${randomCollege.type}
+          <li key={randomCollege.type}>
+            Type: {randomCollege.type}
           </li>
         </ul>
       </div>

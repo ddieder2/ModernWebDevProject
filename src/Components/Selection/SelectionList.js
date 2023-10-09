@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.css";
 
 const SelectionList = ({ colleges, difficulty }) => {
   // If the difficulty prop is easy, we show drop down
@@ -6,11 +7,11 @@ const SelectionList = ({ colleges, difficulty }) => {
     return (
       <select class="form-select" name="colleges" id="college-select">
         <option value="selectCollege">--Select a college--</option>
-        ${colleges.map(
+        {colleges.map(
           (college) =>
-            html` <option value="${college.name}">
+          <option value="${college.name}">
           ${college.name}
-        </li>`
+          </option>
         )}
       </select>
     );

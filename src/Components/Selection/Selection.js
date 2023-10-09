@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect } from "react";
 import SelectionList from "./SelectionList.js";
   
 const Selection = () => {
@@ -10,11 +10,11 @@ const Selection = () => {
     const [colleges, setColleges] = useState([]);
   
     // get all colleges
-    useEffect(() => {
-      getAllCollegeData().then((colleges) => {
-        setColleges(colleges);
-      });
-    }, []);
+    // useEffect(() => {
+    //   getAllCollegeData().then((colleges) => {
+    //     setColleges(colleges);
+    //   });
+    // }, []);
   
     // sets the state of the difficulty setting which is passed to stateless child
     const handleChange = (value) => {

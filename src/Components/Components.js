@@ -1,13 +1,18 @@
 import React from "react";
-import Main from "./Main/Main.js";
-import Selection from "./Selection/Selection.js"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Game from "./Game/Game";
+import Rules from "./Rules/Rules";
+import Nav from "./Nav/Nav";
 
 const Components = () => {
   return (
-    <div>
-      <Main />
-      <Selection />
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Game />} />
+        <Route path="/rules" element={<Rules />} />
+      </Routes>
+    </Router>
   );
 };
 

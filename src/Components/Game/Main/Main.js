@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllCollegeData } from "../../Common/Services/CollegeService.js";
+import { getAllCollegeData } from "../../../Common/Services/CollegeService.js";
 import MainList from "./MainList.js";
 
 const Main = () => {

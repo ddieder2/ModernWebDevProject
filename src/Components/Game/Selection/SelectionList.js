@@ -8,8 +8,8 @@ const SelectionList = ({ colleges, difficulty }) => {
         <option value="selectCollege">--Select a college--</option>
         {colleges.map(
           (college) =>
-          <option value={college.name}>
-          {college.name}
+          <option value={college.get('name')}>
+          {college.get('name')}
           </option>
         )}
       </select>

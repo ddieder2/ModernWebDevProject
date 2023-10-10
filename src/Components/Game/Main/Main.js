@@ -5,11 +5,11 @@ import MainList from "./MainList.js";
 const Main = () => {
 const [colleges, setColleges] = useState([]);
 
-// useEffect(() => {
-//     getAllCollegeData().then((colleges) => {
-//     setColleges(colleges);
-//     });
-// }, []);
+useEffect(() => {
+    getAllCollegeData().then((colleges) => {
+    setColleges(colleges);
+    });
+}, []);
 
 // Pass list of colleges to stateless child
 return (

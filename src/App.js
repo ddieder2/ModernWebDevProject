@@ -1,4 +1,5 @@
 import './App.css';
+import './Nav.css';
 import Parse from "parse";
 import Components from './Components/Components';
 

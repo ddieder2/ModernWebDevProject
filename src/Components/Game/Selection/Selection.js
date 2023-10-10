@@ -24,29 +24,25 @@ const Selection = () => {
     // TODO: Add action to form to check response
     return (
         <div>
-            <div class="btn-group" role="group" id="difficulty-selector">
+            <div className="btn-group" role="group" id="difficulty-selector">
                 <button
                     type="button"
-                    class="btn btn-dark"
-                    onclick={() => {
-                        handleChange("easy");
-                    } }
+                    className="btn btn-dark"
+                    onClick={()=>handleChange("easy")} 
                 >
                     Easy
                 </button>
                 <button
                     type="button"
-                    class="btn btn-dark"
-                    onclick={() => {
-                        handleChange("hard");
-                    } }
+                    className="btn btn-dark"
+                    onClick={() =>handleChange("hard")} 
                 >
                     Hard
                 </button>
             </div>
             <form action="">
                 <SelectionList colleges={colleges} difficulty={difficulty} />
-                <button class="btn btn-dark upper-margin">Submit</button>
+                <button className="btn btn-dark upper-margin">Submit</button>
             </form>
         </div>
       );

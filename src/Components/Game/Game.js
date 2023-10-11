@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "./Main/Main";
 import Selection from "./Selection/Selection";
+import HighScores from "./HighScores/HighScores";
 
 
 const Game = () => {
@@ -8,6 +9,7 @@ const Game = () => {
     <div>
         <Main/>
         <Selection/>
+        <HighScores/>
     </div>
   );
 };

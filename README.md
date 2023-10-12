@@ -1,5 +1,4 @@
-#College Guessing Game
-Tyler Stinson & Dominic Diederich
+By: Tyler Stinson & Dominic Diederich
 
 # Getting Started with Create React App
 

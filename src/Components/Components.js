@@ -21,7 +21,7 @@ const Components = () => {
           element={<ProtectedRoute path="/" element={Game} />}
         />
         <Route path="/rules" element={<Rules />} />
-        {/* <Route path="*" element={<Auth />} /> */}
+        <Route path="*" element={<Auth />} />
       </Routes>
     </Router>
   );

@@ -14,3 +14,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Displayed dummy high score data
 ### Changed
 - Refactored components from preact to react
+
+## [0.3.0] - 2023-11-08
+### Added
+ - Login / Register functionality
+ - Logout functionality
+ - Protected the game component to require authentication
+ - Added styling to authentication pages
+### Changed
+ - No other changes

@@ -27,7 +27,15 @@ input {
   max-width: 50%;
 }
 
-/* Uses media query to allow size of drop down menu to fill screen on mobile devices */
+input.full {
+  max-width: 100%;
+}
+
+.card {
+  max-width: 40%;
+}
+
+/* Uses media query to allow size of drop down menu & card to fill screen on mobile devices */
 @media all and (max-width: 600px) {
   select {
     max-width: 100%;
@@ -35,5 +43,9 @@ input {
 
   input {
     max-width: 100%;
+  }
+
+  .card {
+    max-width: 50%;
   }
 }

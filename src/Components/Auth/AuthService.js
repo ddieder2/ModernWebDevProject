@@ -40,6 +40,7 @@ export const loginUser = (currUser) => {
     });
 };
 
+// checks if user is authenticated
 export const checkUser = () => {
   return Parse.User.current()?.authenticated;
 };

@@ -22,3 +22,17 @@
     text-decoration: underline;
   }
   
+    /* Removes link text decoration from nav menu */
+    .nav button {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: black;
+      font-family: "Black Ops One";
+    }
+    
+    /* Uses :hover pseudoclass to underline hovered choice */
+    .nav button:hover {
+      color: black;
+      text-decoration: underline;
+    }

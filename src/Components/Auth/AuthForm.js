@@ -2,20 +2,22 @@ import React from "react";
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
   return (
-    <form onSubmit={onSubmit} autoComplete="off">
+    <div className="card border-dark mx-auto">
+      <form onSubmit={onSubmit} autoComplete="off">
+      <div className="card-body">
       {!isLogin ? (
         <div>
+          <h1 className="text-center">Register</h1>
           <div className="form-group">
             <label>First Name</label>
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control full"
               id="first-name-input"
               value={user.firstName}
               onChange={onChange}
               name="firstName"
-              placeholder="first name"
               required
             />
           </div>
@@ -24,7 +26,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control full"
               id="last-name-input"
               value={user.lastName}
               onChange={onChange}
@@ -34,7 +36,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
           </div>{" "}
         </div>
       ) : (
-        <></>
+        <h1 className="text-center">Login</h1>
       )}
       <div>
         <div className="form-group">
@@ -42,7 +44,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
           <br />
           <input
             type="email"
-            className="form-control"
+            className="form-control full"
             id="email-input"
             value={user.email}
             onChange={onChange}
@@ -55,7 +57,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
           <br />
           <input
             type="password"
-            className="form-control"
+            className="form-control full"
             id="password-input"
             value={user.password}
             onChange={onChange}
@@ -64,13 +66,15 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             required
           />
         </div>
-        <div className="form-group">
-          <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
+        <div className="text-center form-group">
+          <button type="submit" className="btn btn-dark upper-margin" onSubmit={onSubmit}>
             Submit
           </button>
         </div>
       </div>
+      </div>
     </form>
+    </div>
   );
 };
 

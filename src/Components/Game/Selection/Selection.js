@@ -43,6 +43,7 @@ const Selection = () => {
             </div>
             <form action="">
                 <SelectionList colleges={colleges} difficulty={difficulty} />
+                {/* TO-DO: Add functionality for on Submit */}
                 <button className="btn btn-dark upper-margin">Submit</button>
             </form>
         </div>

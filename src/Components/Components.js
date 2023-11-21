@@ -7,6 +7,7 @@ import Auth from "./Auth/Auth";
 import AuthRegister from "./Auth/AuthRegister";
 import AuthLogin from "./Auth/AuthLogin";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Profile from "./Profile/Profile";
 
 const Components = () => {
   return (
@@ -21,6 +22,7 @@ const Components = () => {
           element={<ProtectedRoute path="/" element={Game} />}
         />
         <Route path="/rules" element={<Rules />} />
+        <Route path="/profile" element={<ProtectedRoute path='profile' element={Profile} />} />
         <Route path="*" element={<Auth />} />
       </Routes>
     </Router>

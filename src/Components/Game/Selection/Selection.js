@@ -13,6 +13,7 @@ const Selection = () => {
     // get all colleges
     useEffect(() => {
       getAllCollegeData().then((colleges) => {
+        console.log(colleges);
         setColleges(colleges);
       });
     }, []);

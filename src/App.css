@@ -35,6 +35,10 @@ input.full {
   max-width: 40%;
 }
 
+.small {
+  font-size: small;
+}
+
 /* Uses media query to allow size of drop down menu & card to fill screen on mobile devices */
 @media all and (max-width: 600px) {
   select {

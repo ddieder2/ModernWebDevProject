@@ -1,7 +1,6 @@
 import Parse from "parse";
 
 export const createDefaultProfile = () => {
-    console.log('Creating Profile')
     const username = Parse.User.current().getUsername();
     const Profile = Parse.Object.extend('Profile');
     const profile = new Profile();
@@ -18,8 +17,18 @@ export const createDefaultProfile = () => {
     );
 }
 
-export const getProfile = () => {
-    const username = Parse.User.current().getUsername();
+export const getLeaderBoardNames = () => {
+    const Profile = Parse.Object.extend('Profile');
+    const query = new Parse.Query(Profile);
+    return query.find().then((object) =>{
+        return object;
+    }).catch((error) => {
+        alert('Error:' + error.code + " " + error.message);
+        return null;
+    });
+}
+
+export const getProfile = (username) => {
     const Profile = Parse.Object.extend('Profile');
     const query = new Parse.Query(Profile);
     query.equalTo('username', username);

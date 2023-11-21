@@ -10,6 +10,25 @@ h1 {
   font-family: "Black Ops One";
 }
 
+.emphasize {
+  font-family: "Black Ops One";
+}
+
+
+.lb_link button {
+  text-decoration: none;
+  display: inline;
+  color: black;
+  padding: 0px;
+  font-family: "Black Ops One";
+}
+  
+/* Uses :hover pseudoclass to underline hovered choice */
+.lb_link button:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 .upper-margin {
   margin-top: 16px;
 }

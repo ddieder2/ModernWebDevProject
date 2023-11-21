@@ -7,3 +7,21 @@ export const getAllHighScoreData = () => {
     return results;
   });
 };
+
+export const saveHighScore = (score, mode) => {
+  const userId = Parse.User.current().id;
+  const username = Parse.User.current().getUsername();
+  const HighScore = Parse.Object.extend('HighScore');
+  const highScore = new HighScore();
+  highScore.set('highScore', score)
+  highScore.set('user', userId);
+  highScore.set('mode', mode);
+  highScore.set('username', username);
+  return highScore.save().then((result) => {
+      console.log(`Success saving high score for ${username}`)
+      return result;
+  }).catch((error) => {
+      alert('Error:' + error.code + " " + error.message);
+      return null;
+  });
+}

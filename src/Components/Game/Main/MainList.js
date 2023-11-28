@@ -1,24 +1,22 @@
 import React from "react";
 
-const MainList = ({ colleges }) => {
+const MainList = ({ college }) => {
   // Check if the colleges array is not empty (otherwise errors arise)
-  if (colleges && colleges.length > 0) {
-    // Select random college
-    const randomCollege = colleges[Math.floor(Math.random() * colleges.length)];
+  if (college) {
 
     return (
       <div>
         <hr />
         Guess the college by the following info:
         <ul>
-          <li key={randomCollege.get('teamName')}>
-            Team Name: {randomCollege.get('teamName')}
+          <li key={college.get('teamName')}>
+            Team Name: {college.get('teamName')}
           </li>
-          <li key={randomCollege.get('footballConference')}>
-            Conference: {randomCollege.get('footballConference')}
+          <li key={college.get('footballConference')}>
+            Conference: {college.get('footballConference')}
           </li>
-          <li key={randomCollege.get('type')}>
-            Type: {randomCollege.get('type')}
+          <li key={college.get('type')}>
+            Type: {college.get('type')}
           </li>
         </ul>
       </div>

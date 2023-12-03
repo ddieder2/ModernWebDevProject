@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { checkUser, createUser } from "./AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
+import { createDefaultProfile } from "../../Common/Services/Profileservice";
 
 const AuthRegister = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const AuthRegister = () => {
           alert(
             `${userCreated.get("firstName")}, you successfully registered!`
           );
+          createDefaultProfile();
           navigate("/");
         }
         // TODO: redirect user to main app

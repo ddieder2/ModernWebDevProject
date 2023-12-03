@@ -14,6 +14,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
     // get all colleges
     useEffect(() => {
       getAllCollegeData().then((colleges) => {
+        console.log(colleges);
         setColleges(colleges);
       });
     }, []);

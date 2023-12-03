@@ -49,3 +49,169 @@ input.full {
     max-width: 50%;
   }
 }
+
+
+/* New Live Query stuff */
+
+.live-chat html {
+  box-sizing: border-box;
+  outline: none;
+  overflow: auto;
+}
+
+.live-chat body {
+  margin: 0;
+  background-color: #fff;
+}
+
+.live-chat *,
+.live-chat *:before,
+.live-chat *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.live-chat h1,
+.live-chat h2,
+.live-chat h3,
+.live-chat h4,
+.live-chat h5,
+.live-chat h6 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.live-chat li {
+  list-style: none;
+}
+
+.live-chat p {
+  margin: 0;
+}
+
+.live-chat .flex_between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.live-chat .list_heading {
+  font-weight: bold;
+}
+
+.live-chat .App {
+  text-align: center;
+}
+
+.live-chat .container {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.live-chat .header {
+  align-items: center;
+  padding: 25px 0;
+  background-color: #212529;
+  /* background-color: #41444D; */
+}
+
+.live-chat .header_logo {
+  height: 55px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.live-chat .header_text_bold {
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.live-chat .header_text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+}
+
+.live-chat .heading {
+  font-size: 22px;
+}
+
+.live-chat .form_wrapper {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.live-chat .form_input {
+  margin-bottom: 20px;
+}
+
+.live-chat .form_button {
+  width: 100%;
+}
+
+.live-chat .messages {
+  margin-top: 25px;
+}
+
+.live-chat .message_sent {
+  position: relative;
+  width: 50%;
+  margin-left: auto;
+}
+
+.live-chat .message_received {
+  position: relative;
+  width: 50%;
+}
+
+.live-chat .message_bubble {
+  padding: 12px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.live-chat .message_sent .message_bubble {
+  background-color: #212529;
+  color: #fff;
+}
+
+.live-chat .message_time {
+  position: absolute;
+  top: 35%;
+  left: -62px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.35);
+  transform: translateY(-50%);
+}
+
+.live-chat .message_sent .message_time {
+  left: initial;
+  right: -62px;
+}
+
+.live-chat .message_name {
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.live-chat .message_sent .message_name {
+  text-align: right;
+}
+
+.live-chat .new_message {
+  padding-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.live-chat .new_message_title {
+  margin-bottom: 15px;
+}

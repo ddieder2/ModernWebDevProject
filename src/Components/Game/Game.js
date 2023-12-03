@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Main from "./Main/Main";
 import Selection from "./Selection/Selection";
-import HighScores from "./HighScores/HighScores";
+// import HighScores from "./HighScores/HighScores";
+import ChatSetup from "./Chat/ChatSetup";
 import { getAllCollegeData } from "../../Common/Services/CollegeService.js";
 
 const Game = () => {
@@ -27,7 +28,7 @@ const Game = () => {
     <div>
       <Main college={college} />
       <Selection score={score} setScore={setScore} college={college} setScoreChanged={setScoreChanged} />
-      <HighScores />
+      <ChatSetup />
     </div>
   );
 };

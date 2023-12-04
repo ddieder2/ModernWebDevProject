@@ -238,3 +238,7 @@ input.full {
 .live-chat .new_message_title {
   margin-bottom: 15px;
 }
+
+.live-chat .header_text {
+  text-align: center;
+}

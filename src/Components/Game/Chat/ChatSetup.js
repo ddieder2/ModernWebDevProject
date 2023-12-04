@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input } from "antd";
 import Parse from "parse";
 import { LiveChat } from "./LiveChat";
@@ -10,18 +10,27 @@ export const ChatSetup = () => {
   const [receiverNicknameInput, setReceiverNicknameInput] = useState("");
   const [receiverNicknameId, setReceiverNicknameId] = useState(null);
 
+  // Function to get the current user's username
+  const getCurrentUsername = () => {
+    const currentUser = Parse.User.current();
+    if (currentUser) {
+      return currentUser.get('username');
+    }
+    return "";
+  };
+
   // Create or retrieve Nickname objects and start LiveChat component
   const startLiveChat = async () => {
-    const senderNicknameName = senderNicknameInput;
+    const senderNicknameName = getCurrentUsername();
     const receiverNicknameName = receiverNicknameInput;
 
     // Check if user informed both nicknames
-    if (senderNicknameName === "" || receiverNicknameName === "") {
+    if (receiverNicknameName === "") {
       alert("Please inform both sender and receiver nicknames!");
       return false;
     }
 
-    // Check if sender nickname already exists, if not create new parse object
+    // Check if sender nickname already exists, if not create a new parse object
     let senderNicknameObject = null;
     try {
       const senderParseQuery = new Parse.Query("Nickname");
@@ -42,7 +51,7 @@ export const ChatSetup = () => {
       return false;
     }
 
-    // Check if receiver nickname already exists, if not create new parse object
+    // Check if the receiver nickname already exists, if not create a new parse object
     let receiverNicknameObject = null;
     try {
       const receiverParseQuery = new Parse.Query("Nickname");
@@ -63,17 +72,22 @@ export const ChatSetup = () => {
       return false;
     }
 
-    // Set nickname objects ids, so live chat component is instantiated
+    // Set nickname objects ids, so the live chat component is instantiated
     setSenderNicknameId(senderNicknameObject.id);
     setReceiverNicknameId(receiverNicknameObject.id);
     return true;
   };
 
+  useEffect(() => {
+    // Set the default sender nickname to the current user's username
+    setSenderNicknameInput(getCurrentUsername());
+  }, []); // Empty dependency array ensures this effect runs once when the component mounts
+
   return (
     <div className="live-chat">
       <br />
       <div className="header">
-        <p className="header_text">{"Chat with another player:"}</p>
+        <p className="header_text">{"Need help? Phone a friend!"}</p>
       </div>
       <div className="container">
         {senderNicknameId === null && receiverNicknameId === null && (
@@ -81,7 +95,7 @@ export const ChatSetup = () => {
             <Input
               className="form_input"
               value={senderNicknameInput}
-              onChange={(event) => setSenderNicknameInput(event.target.value)}
+              readOnly
               placeholder={"Sender (Your) Nickname"}
               size="large"
             />
@@ -89,7 +103,7 @@ export const ChatSetup = () => {
               className="form_input"
               value={receiverNicknameInput}
               onChange={(event) => setReceiverNicknameInput(event.target.value)}
-              placeholder={"Receiver (Their) Nickname"}
+              placeholder={"Friend's Username (Email)"}
               size="large"
             />
             <Button

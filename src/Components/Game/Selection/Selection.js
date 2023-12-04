@@ -1,6 +1,7 @@
 import {React, useState, useEffect } from "react";
 import SelectionList from "./SelectionList.js";
 import { getAllCollegeData } from "../../../Common/Services/CollegeService.js";
+import { saveHighScore } from "../../../Common/Services/HighScoreService.js";
 
 const Selection = ( { college, score, setScore, setScoreChanged } ) => {
     const initialDifficulty = () => {
@@ -10,12 +11,21 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
     const [difficulty, setDifficulty] = useState(initialDifficulty);
     const [colleges, setColleges] = useState([]);
     const [selectedCollege, setSelectedCollege] = useState("");
+    const [disableDifficultyChange, setDisableDifficultyChange] = useState(false);
+    const [highscoreMessage, setHighScoreMessage] = useState('');
   
     // get all colleges
     useEffect(() => {
       getAllCollegeData().then((colleges) => {
-        console.log(colleges);
-        setColleges(colleges);
+        setColleges(colleges.sort(function (a, b) {
+          if (a.get('name') < b.get('name')) {
+            return -1;
+          }
+          if (a.get('name') > b.get('name')) {
+            return 1;
+          }
+          return 0;
+        }));
       });
     }, []);
   
@@ -28,11 +38,18 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
     const testGuess = (e) => {
       e.preventDefault();
       if(college){
+        setHighScoreMessage('');
         if(college.get('name') === selectedCollege){
           setScore(score + 1);
+          setDisableDifficultyChange(true);
         }
         else{
+          if (score !== 0) {
+          saveHighScore(score, difficulty);
+          setHighScoreMessage('Congratulations! Your score of ' + score.toString() + ' was added to the leaderboard!');
           setScore(0);
+          setDisableDifficultyChange(false);
+          }
         }
         setScoreChanged(true);
       }
@@ -49,6 +66,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
         <div>
             <div className="btn-group" role="group" id="difficulty-selector">
                 <button
+                    disabled={disableDifficultyChange}
                     type="button"
                     className="btn btn-dark"
                     onClick={()=>handleChange("easy")} 
@@ -56,6 +74,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
                     Easy
                 </button>
                 <button
+                    disabled={disableDifficultyChange}
                     type="button"
                     className="btn btn-dark"
                     onClick={() =>handleChange("hard")} 
@@ -68,6 +87,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
                 <button type="submit" className="btn btn-dark upper-margin" onClick={testGuess}>Submit</button>
             </form>
             <div>Score: {score}</div>
+            <div className="highScore">{highscoreMessage}</div>
         </div>
       );
 };

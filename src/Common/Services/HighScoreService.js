@@ -9,12 +9,12 @@ export const getAllHighScoreData = () => {
 };
 
 export const saveHighScore = (score, mode) => {
-  const userId = Parse.User.current().id;
+  const user = Parse.User.current();
   const username = Parse.User.current().getUsername();
   const HighScore = Parse.Object.extend('HighScore');
   const highScore = new HighScore();
   highScore.set('highScore', score)
-  highScore.set('user', userId);
+  highScore.set('user', user);
   highScore.set('mode', mode);
   highScore.set('username', username);
   return highScore.save().then((result) => {

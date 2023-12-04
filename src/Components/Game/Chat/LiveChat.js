@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input, Tooltip } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
 import Parse from "parse";
 import { useParseQuery } from "@parse/react";
+import { getProfileLeaderboardName } from "../../../Common/Services/Profileservice.js";
 
 export const LiveChat = (props) => {
   // State variable to hold message text input
@@ -72,10 +73,38 @@ export const LiveChat = (props) => {
     return `${hours}:${minutes}:${seconds}`;
   };
 
+  const getName = async (username) => {
+    try {
+        const result = await getProfileLeaderboardName(username);
+        console.log(result);  // This should log either the leaderboardName or the original username
+        return result;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+  };
+
+  const [senderName, setSenderName] = useState("");
+  const [receiverName, setReceiverName] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const senderNameResult = await getName(props.senderNicknameName);
+        const receiverNameResult = await getName(props.receiverNicknameName);
+        setSenderName(senderNameResult);
+        setReceiverName(receiverNameResult);
+      } catch (error) {
+        console.error("Error fetching names:", error);
+      }
+    };
+
+    fetchData();
+  }, [props.senderNicknameName, props.receiverNicknameName]);
+
   return (
     <div className="live-chat">
       <div className="flex_between">
-        <h2 class="list_heading">{`${props.senderNicknameName} sending, ${props.receiverNicknameName} receiving!`}</h2>
+        <h2 className="list_heading">{`Conversation with ${receiverName}`}</h2>
         <Tooltip title="Reload">
           <Button
             onClick={reload}
@@ -107,9 +136,9 @@ export const LiveChat = (props) => {
                 <p className="message_time">
                   {formatDateToTime(result.get("createdAt"))}
                 </p>
-                <p className="message_name">
+                {/* <p className="message_name">
                   {result.get("sender").get("name")}
-                </p>
+                </p> */}
               </div>
             ))}
         </div>

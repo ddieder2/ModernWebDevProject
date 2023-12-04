@@ -71,3 +71,23 @@ export const updateDescription = (description) => {
         }
     });
 }
+
+export const getProfileLeaderboardName = (username) => {
+    const Profile = Parse.Object.extend('Profile');
+    const query = new Parse.Query(Profile);
+    query.equalTo('username', username);
+
+    return query.first().then((profile) => {
+        if (profile) {
+            // If the profile is found, return the leaderboardName
+            return profile.get('leaderboardName');
+        } else {
+            // If no profile is found, return the provided username
+            return username;
+        }
+    }).catch((error) => {
+        console.error('Error:', error.code, error.message);
+        return null;
+    });
+}
+

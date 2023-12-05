@@ -39,7 +39,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
       e.preventDefault();
       if(college){
         setHighScoreMessage('');
-        if(college.get('name') === selectedCollege){
+        if(selectedCollege === college.get('name') || selectedCollege === college.get('SimpleName')){
           setScore(score + 1);
           setDisableDifficultyChange(true);
         }

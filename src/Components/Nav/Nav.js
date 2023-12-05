@@ -17,7 +17,7 @@ const Nav = () => {
                 <li><Link to="/">Game</Link></li>
                 <li><Link to='/leaderboard'>Leaderboard</Link></li>
                 <li><Link to="/rules">Rules</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
+                <li><Link data-cy="profile-nav" to="/profile">Profile</Link></li>
                 <li><button className="btn btn-link" onClick={()=>logOutHandler()} >Logout</button></li>
             </ul>
         </header>

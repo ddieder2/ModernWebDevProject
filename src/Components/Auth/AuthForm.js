@@ -49,6 +49,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             value={user.email}
             onChange={onChange}
             name="email"
+            data-test="email-input"
             required
           />
         </div>{" "}
@@ -63,6 +64,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             onChange={onChange}
             name="password"
             min="0"
+            data-test="password-input"  
             required
           />
         </div>

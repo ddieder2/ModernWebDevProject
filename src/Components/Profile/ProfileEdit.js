@@ -16,14 +16,16 @@ const ProfileEdit = (props) => {
                 id="leaderboard-name-input"
                 value={userProfile['leaderboardName']}
                 onChange={onChange}
-                name="leaderboardName"></input></div>
+                name="leaderboardName"
+                data-test="leaderboard-name-input"></input></div>
                <div className="upper-margin"><label><b>Description: </b></label>
                <textarea type="text"
                 className="form-control full"
                 id="description-input"
                 value={userProfile['description']}
                 onChange={onChange}
-                name="description"></textarea></div>
+                name="description"
+                data-test="description-input"></textarea></div>
          </>
       );
    } else {

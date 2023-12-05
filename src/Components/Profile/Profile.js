@@ -67,7 +67,7 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
                 <div className="card-body">
                     <h1 className="text-center">Profile</h1>
                     <ProfileList userProfile={profile} showUsername={true}/>
-                    <button className="btn btn-dark small upper-margin" onClick={()=>{changeToEditMode()}}>Edit Profile</button>
+                    <button data-cy="profile-edit" className="btn btn-dark small upper-margin" onClick={()=>{changeToEditMode()}}>Edit Profile</button>
                 </div>
             </div>
         );
@@ -77,7 +77,7 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
                 <div className="card-body">
                     <h1 className="text-center">Profile</h1>
                     <ProfileEdit userProfile={profile} onChange={onChangeHandler}/>
-                    <button className="btn btn-dark small upper-margin" onClick={()=>{onSubmitHandler()}}>Submit Profile</button>
+                    <button data-cy="profile-submit" className="btn btn-dark small upper-margin" onClick={()=>{onSubmitHandler()}}>Submit Profile</button>
                 </div>
             </div>
         );

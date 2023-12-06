@@ -15,6 +15,7 @@ describe('Login to Profile Integration Testing', () => {
     cy.get('[data-test=username]').should('have.text', 'Username: user@user.com');
     cy.get('[data-test=leaderboardName]').should('have.text', 'Leaderboard Name: IrishFan24');
     cy.get('[data-test=description]').should('have.text', 'Description: Go Irish!!');
+    cy.get('li').should('have.length', 5);
   });
 
   it('Allows edits', () =>{
@@ -31,10 +32,25 @@ describe('Login to Profile Integration Testing', () => {
     cy.get('[data-test=description]').should('have.text', 'Description: Go Irish!!!');
   });
 
+  it ('Shows profile in leaderboard', () => {
+    cy.get('[data-cy=leaderboard-nav]').click();
+    cy.url().should('eq', 'http://localhost:3000/leaderboard');
+    cy.wait(100);
+    cy.get('button').eq(1).click();
+    cy.get('h1').should('have.text', 'Profile');
+    cy.get('[data-test=username]').should('have.length', 0);
+    cy.get('[data-test=leaderboardName]').should('have.text', 'Leaderboard Name: IrishFan241');
+    cy.get('[data-test=description]').should('have.text', 'Description: Go Irish!!!');
+    cy.get('li').should('have.length', 5);
+    cy.get('[data-cy=profile-edit]').should('have.length', 0);
+  });
+
   after('Clean up', () => {
+    cy.get('[data-cy=profile-nav]').click();
+    cy.url().should('eq', 'http://localhost:3000/profile');
     cy.get('[data-cy=profile-edit]').click();
     cy.get('[data-test=leaderboard-name-input]').type('{backspace}');
     cy.get('[data-test=description-input]').type('{backspace}');
     cy.get('[data-cy=profile-submit]').click();
-  })
+  });
 });

@@ -24,4 +24,16 @@ export const saveHighScore = (score, mode) => {
       alert('Error:' + error.code + " " + error.message);
       return null;
   });
+};
+
+export const getHighScoreForUser = (providedUsername) => {
+  const username = providedUsername ? providedUsername : Parse.user.current().getUsername();
+  const HighScore = Parse.Object.extend("HighScore");
+  const query = new Parse.Query(HighScore);
+  query.equalTo('username', username);
+  return query.find().then((results) => {
+    return results;
+}).catch((error) => {
+    alert('Error:' + error.code + " " + error.message);
+});
 }

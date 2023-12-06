@@ -46,7 +46,7 @@ const Selection = ( { college, score, setScore, setScoreChanged } ) => {
         else{
           if (score !== 0) {
           saveHighScore(score, difficulty);
-          setHighScoreMessage('Congratulations! Your score of ' + score.toString() + ' was added to the leaderboard!');
+          setHighScoreMessage('Round Ended - Score: ' + score.toString() + ' - Mode:' + difficulty);
           setScore(0);
           setDisableDifficultyChange(false);
           }

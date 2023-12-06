@@ -242,3 +242,7 @@ input.full {
 .live-chat .header_text {
   text-align: center;
 }
+
+.highScore {
+  color: green;
+}

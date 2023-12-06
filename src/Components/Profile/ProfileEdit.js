@@ -3,6 +3,7 @@ import React from "react";
 const ProfileEdit = (props) => {
    const userProfile = props.userProfile;
    const onChange = props.onChange;
+   const scores = props.scores;
 
    if (userProfile !== null && userProfile !== undefined) {
       console.log(userProfile)
@@ -26,6 +27,11 @@ const ProfileEdit = (props) => {
                 onChange={onChange}
                 name="description"
                 data-test="description-input"></textarea></div>
+               <div><b>High Scores:</b>
+                  <ol data-test='scores'>{scores.map((highScore) => 
+                     (<li><span className="emphasize">{highScore.get("highScore")}</span> on <span className="emphasize">{highScore.get("mode")}</span></li>))}
+                  </ol>
+               </div>
          </>
       );
    } else {

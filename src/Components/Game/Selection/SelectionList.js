@@ -1,10 +1,10 @@
 import React from "react";
 
-const SelectionList = ({ colleges, difficulty, onChange }) => {
+const SelectionList = ({ colleges, difficulty, onChange, selectedCollege }) => {
   
   if (difficulty === "easy") {
     return (
-      <select className="form-select" name="colleges" id="college-select" onChange={onChange}>
+      <select className="form-select full" name="colleges" id="college-select" onChange={onChange} value={selectedCollege}>
         <option value="selectCollege">--Select a college--</option>
         {colleges.map(
           (college) =>
@@ -17,7 +17,7 @@ const SelectionList = ({ colleges, difficulty, onChange }) => {
   } else {
     // If the difficulty is hard, we show a text input
     return (
-      <input className="form-control" type="text" placeholder="Enter college name" onChange={onChange}></input>
+      <input className="form-control full" type="text" placeholder="Enter college name" onChange={onChange} value={selectedCollege}></input>
     );
   }
 };

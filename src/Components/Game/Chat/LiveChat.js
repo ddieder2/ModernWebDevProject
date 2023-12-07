@@ -146,7 +146,7 @@ export const LiveChat = (props) => {
       <div className="new_message">
         <h2 className="new_message_title">New message</h2>
         <Input
-          className="form_input"
+          className="form_input full"
           value={messageInput}
           onChange={(event) => setMessageInput(event.target.value)}
           placeholder={"Your message..."}

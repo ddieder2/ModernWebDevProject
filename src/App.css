@@ -42,12 +42,20 @@ select {
   max-width: 50%;
 }
 
+.full {
+  max-width: 100%;
+}
+
 input {
   max-width: 50%;
 }
 
 input.full {
   max-width: 100%;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .card {
@@ -72,7 +80,6 @@ input.full {
     max-width: 50%;
   }
 }
-
 
 /* New Live Query stuff */
 
@@ -171,6 +178,7 @@ input.full {
 
 .live-chat .form_input {
   margin-bottom: 20px;
+  padding: 0px 5px;
 }
 
 .live-chat .form_button {
@@ -245,4 +253,20 @@ input.full {
 
 .highScore {
   color: green;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.large {
+  font-size: larger;
+}
+
+.no-margin {
+  margin: 0 !important;
 }

@@ -6,7 +6,7 @@ const Main = ({ college }) => {
 // Pass list of colleges to stateless child
 return (
     <div>
-    <h1>Guess The College</h1>
+    <h1>College Guessing Game</h1>
     <MainList college={college} />
     </div>
 );

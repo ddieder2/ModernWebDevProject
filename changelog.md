@@ -23,3 +23,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Added styling to authentication pages
 ### Changed
  - No other changes
+
+## [0.4.0] - 2023-12-09
+### Added
+ - Profile showing username, leaderboard name, description, top scores
+ - Ability to set leaderboard name, description
+ - Ability to view other user's profile from leaderboard
+ - Game connected to leaderboard - scores will populate on leaderboard if in the top 20 scores on the site
+ - Guessing correctly updates score - subsequent guesses increase score, incorrect guesses returns score to 0 and ends round
+ - Live chat with other users to ask questions about game
+ - e2e testing for profile component
+### Changed
+ - Redesigned leaderboard component with bootstrap

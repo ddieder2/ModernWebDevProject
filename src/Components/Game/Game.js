@@ -25,11 +25,16 @@ const Game = () => {
   }, [college, scoreChanged]);
 
   return (
-    <div>
-      <Main college={college} />
-      <Selection score={score} setScore={setScore} college={college} setScoreChanged={setScoreChanged} />
-      <ChatSetup />
+    <>
+    <div className="card border-dark mx-auto">
+      <div className="card-body">
+      <h1 className="center-text">College Guessing Game</h1>
+        <Main college={college} />
+        <Selection score={score} setScore={setScore} college={college} setScoreChanged={setScoreChanged} />
+      </div>
     </div>
+    <ChatSetup />
+    </>
   );
 };
 

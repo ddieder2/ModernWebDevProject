@@ -6,7 +6,7 @@ const MainList = ({ college }) => {
 
     return (
       <div>
-        <hr />
+        
         Guess the college by the following info:
         <ul>
           <li key={college.get('teamName')}>

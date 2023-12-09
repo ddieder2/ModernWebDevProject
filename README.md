@@ -1,8 +1,9 @@
 By: Tyler Stinson & Dominic Diederich
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To Intall Project and Dependencies
+1. Download .zip file
+2. Run `npm install` to install all dependencies
+3. See scripts below to start or test project
 
 ## Available Scripts
 

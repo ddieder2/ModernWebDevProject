@@ -4,7 +4,8 @@ const ProfileEdit = (props) => {
    const userProfile = props.userProfile;
    const onChange = props.onChange;
    const scores = props.scores;
-
+   
+   //Uses editable fields and onChange prop to send to parse
    if (userProfile !== null && userProfile !== undefined) {
       console.log(userProfile)
       console.log(userProfile !== null);

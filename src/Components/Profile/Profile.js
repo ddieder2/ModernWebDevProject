@@ -19,13 +19,14 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
         } else {
             un = Parse.User.current().getUsername()
         }
-
+        //Loads profile information from parse
         getProfile(un).then((profile) => {
             if (profile !== null && profile !== undefined) {
                 const username = profile.get('username');
                 const leaderboardName = profile.get('leaderboardName');
                 const description = profile.get('description');
                 setProfile({username: username, leaderboardName: leaderboardName, description: description});
+                //Gets scores and sorts them by highScore
                 getHighScoreForUser(un).then((scoreObjects) => {
                     if (scoreObjects) {
                         scoreObjects.sort((a,b) => b.get("highScore") - a.get("highScore"));
@@ -60,6 +61,8 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
     };
     
     console.log("otherUser", otherUser)
+    //Other user used when viewing a profile through the leaderboard
+    //Does not show username (email)
     if (otherUser) {
         return (
             <div className="card border-dark mx-auto">
@@ -71,6 +74,7 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
             </div>
         );
     } else if (!edit) {
+        //User's own profile
         return (
             <div className="card border-dark mx-auto">
                 <div className="card-body">
@@ -81,6 +85,7 @@ const Profile = ({otherUser, providedUsername, closeProfile}) => {
             </div>
         );
     } else {
+        //Editable version of the profile (changes sent to parse on submit)
         return (
             <div className="card border-dark mx-auto">
                 <div className="card-body">

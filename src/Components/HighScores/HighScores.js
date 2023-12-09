@@ -44,7 +44,8 @@ const Main = () => {
         setLeaderboardNames(namesToSet)
     });
     }, []);
-
+    
+    //Displays the profile for given user on button click
     if (showProfile) {
         return(
             <Profile otherUser={true} providedUsername={currentProfile} closeProfile={closeProfile}/>

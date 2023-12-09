@@ -25,7 +25,7 @@ To run profile e2e test:
 4. Click on Profile.cy.js
 5. Tests will run
  
-**Note**: user@user.com (leaderboard name: IrishFan24) must be #1 on the leaderboard for testing to work correctly.
-Login information: 
+**Note**:
+Login information for test user: 
 username: user@user.com
 password: user

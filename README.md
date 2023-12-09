@@ -18,7 +18,7 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm run cypress:open`
-Runs the cypress testing suite
+Runs the cypress testing suite.\
 To run profile e2e test:
 1. Start cypress using command
 2. Choose 'E2E Testing'

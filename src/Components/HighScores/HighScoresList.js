@@ -3,6 +3,7 @@ import Parse from "parse";
 
 const HighScoresList = ({highScores, leaderboardNames, openProfile}) => {
 
+    //Gets the corresponding leaderboard name from list
     const extractName = (username) => {
         for (let r = 0; r < leaderboardNames.length; r++) {
                 const uName = leaderboardNames[r][0];
@@ -14,6 +15,7 @@ const HighScoresList = ({highScores, leaderboardNames, openProfile}) => {
         return username;
     }
 
+    //Creates button to display profile component on click
     const getName = (username) => {
         if (leaderboardNames !== undefined && leaderboardNames !== null) {
             const name = leaderboardNames[username];
